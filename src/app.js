@@ -1,8 +1,8 @@
 /**
- * @declaration core Types
+ * @declaration Core Types
  * number string boolean
  */
-function add(n1, n2, showReslut, phrase) {
+ function add(n1, n2, showReslut, phrase) {
     var result = n1 + n2;
     if (showReslut) {
         console.log(phrase + result);

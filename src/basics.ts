@@ -1,5 +1,5 @@
 /**
- * @declaration core Types
+ * @declaration Core Types
  * number string boolean
  */
 function add(n1: number, n2: number, showReslut: boolean, phrase: string) {
