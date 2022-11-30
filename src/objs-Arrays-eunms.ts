@@ -25,7 +25,6 @@ const person = {
 
 // person.role.push('admin')
 // person.role[0] = 10
-
 // person.role = [1,'admin', 0]
 
 let favoriteActivites: any[]
