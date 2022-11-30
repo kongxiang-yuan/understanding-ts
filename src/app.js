@@ -1,6 +1,6 @@
 /**
  * @declaration Core Types
- * object Array Tuple Enum
+ * object Array Tuple Enum Any
  */
 // const ADMIN = 0
 // const READ_ONLY = 1
@@ -26,6 +26,7 @@ var person = {
 // person.role = [1,'admin', 0]
 var favoriteActivites;
 favoriteActivites = ['Sports'];
+favoriteActivites = [true];
 console.log(person.name);
 for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
     var hobble = _a[_i];

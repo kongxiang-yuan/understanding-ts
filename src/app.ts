@@ -1,6 +1,6 @@
 /**
  * @declaration Core Types
- * object Array Tuple Enum
+ * object Array Tuple Enum Any
  */
 // const ADMIN = 0
 // const READ_ONLY = 1
@@ -28,8 +28,9 @@ const person = {
 
 // person.role = [1,'admin', 0]
 
-let favoriteActivites: string[]
+let favoriteActivites: any[]
 favoriteActivites = ['Sports']
+favoriteActivites = [true]
 console.log(person.name)
 
 for (const hobble of person.hobbies) {
