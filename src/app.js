@@ -1,16 +1,17 @@
 /**
  * @declaration Core Types
- * object Arrays
+ * object Array Tuple
  */
-// const person: {
-//   name: string
-//   age: number
-// } = {
 var person = {
     name: 'kongxiangyuan',
     age: 21,
-    hobbies: ['Sports', 'Cooking']
+    hobbies: ['Sports', 'Cooking'],
+    role: [2, 'author']
 };
+// person.role.push('admin')
+// person.role[0] = 10
+// person.role = [1,'admin', 0]
+person.role = [1, 'admin'];
 var favoriteActivites;
 favoriteActivites = ['Sports'];
 console.log(person.name);
