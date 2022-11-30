@@ -1,18 +1,26 @@
 /**
  * @declaration Core Types
- * object Array Tuple
+ * object Array Tuple Enum
  */
+// const ADMIN = 0
+// const READ_ONLY = 1
+// const AUTHOR = 2
 
-const person: {
-  name: string
-  age: number
-  hobbies: string[]
-  role: [number, string]
-} = {
+/**
+ * 递增 默认值 反向枚举...
+ * Docs: https://www.typescriptlang.org/docs/handbook/enums.html
+ */
+enum Role {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
+
+const person = {
   name: 'kongxiangyuan',
   age: 21,
   hobbies: ['Sports', 'Cooking'],
-  role: [2, 'author'], // role: (string | number)[]
+  role: Role.ADMIN,
 }
 
 // person.role.push('admin')
@@ -20,13 +28,14 @@ const person: {
 
 // person.role = [1,'admin', 0]
 
-person.role = [1,'admin']
-
 let favoriteActivites: string[]
 favoriteActivites = ['Sports']
 console.log(person.name)
 
 for (const hobble of person.hobbies) {
   console.log(hobble.toUpperCase())
-  // console.log(hobble.map); // 类型“string”上不存在属性“map”。ts(2339)
+}
+
+if (person.role === Role.ADMIN) {
+  console.log('is admin ')
 }
