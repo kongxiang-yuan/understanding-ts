@@ -1,37 +1,26 @@
 /**
  * @declaration Core Types
- * object Array Tuple Enum Any
+ * Union
  */
-// const ADMIN = 0
-// const READ_ONLY = 1
-// const AUTHOR = 2
-/**
- * 递增 默认值 反向枚举...
- * Docs: https://www.typescriptlang.org/docs/handbook/enums.html
- */
-var Role;
-(function (Role) {
-    Role[Role["ADMIN"] = 0] = "ADMIN";
-    Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
-    Role[Role["AUTHOR"] = 2] = "AUTHOR";
-})(Role || (Role = {}));
-var person = {
-    name: 'kongxiangyuan',
-    age: 21,
-    hobbies: ['Sports', 'Cooking'],
-    role: Role.ADMIN
-};
-// person.role.push('admin')
-// person.role[0] = 10
-// person.role = [1,'admin', 0]
-var favoriteActivites;
-favoriteActivites = ['Sports'];
-favoriteActivites = [true];
-console.log(person.name);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobble = _a[_i];
-    console.log(hobble.toUpperCase());
+function comnine(input1, input2, reslutConversion) {
+    var reslut;
+    if ((typeof input1 === 'number' && typeof input2 === 'number') ||
+        reslutConversion === 'as-number') {
+        reslut = +input1 + +input2;
+    }
+    else {
+        reslut = input1.toString().toUpperCase() + input2.toString().toUpperCase();
+    }
+    return reslut;
+    // if (reslutConversion === 'as-number') {
+    //   return +reslut
+    // } else {
+    //   return reslut.toString()
+    // }
 }
-if (person.role === Role.ADMIN) {
-    console.log('is admin ');
-}
+var comnineAges = comnine(21, 1, 'as-number');
+console.log('comnineAges: ', comnineAges);
+var comnineStringAges = comnine('21', '1', 'as-number');
+console.log('comnineStringAges: ', comnineStringAges);
+var comnineNames = comnine('kong', 'xiangyuan', 'as-text');
+console.log('comnineNames: ', comnineNames);
