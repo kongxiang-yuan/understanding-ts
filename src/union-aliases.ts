@@ -1,6 +1,6 @@
 /**
  * @declaration Core Types
- * Union 联合类型 Aliase Custom 类型别名（定义）
+ * Union 联合类型 Aliases Custom 类型别名（定义）
  */
 
 type Combinable = number | string
