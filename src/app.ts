@@ -1,11 +1,15 @@
 /**
  * @declaration Core Types
- * Union 联合类型
+ * Union 联合类型 Aliase Custom 类型别名（定义）
  */
+
+type Combinable = number | string
+type ConversionDescriptor = 'as-number' | 'as-text'
+
 function comnine(
-  input1: number | string,
-  input2: number | string,
-  reslutConversion: 'as-number' | 'as-text'
+  input1: Combinable,
+  input2: Combinable,
+  reslutConversion: ConversionDescriptor
 ) {
   let reslut
   if (

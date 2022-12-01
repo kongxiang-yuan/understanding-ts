@@ -1,6 +1,6 @@
 /**
  * @declaration Core Types
- * Union
+ * Union 联合类型 Aliase Custom 类型别名（定义）
  */
 function comnine(input1, input2, reslutConversion) {
     var reslut;
