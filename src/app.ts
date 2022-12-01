@@ -10,4 +10,4 @@ userInput = '1'
 
 if (typeof userInput === 'string') {
   userName = userInput
-}
+} 
