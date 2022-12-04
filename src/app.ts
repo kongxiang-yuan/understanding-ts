@@ -1,6 +1,6 @@
 /**
  * @declaration Core Types
- * interface
+ * interface 
  */
 interface Named {
   readonly name: string
