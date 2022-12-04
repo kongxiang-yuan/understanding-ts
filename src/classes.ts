@@ -1,3 +1,7 @@
+/**
+ * @declaration Core Types
+ * class
+ */
 abstract class Department {
   static faisclyear: number = 2022
   protected employees: string[] = []
