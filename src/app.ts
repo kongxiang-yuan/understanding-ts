@@ -1,7 +1,32 @@
 /**
  * @declaration Core Types
- * type and interface
+ * 类型保护 类型断言
  */
+
+/**
+ * typeof
+ */
+console.log('typeof start')
+
+type Combinable = string | number
+type Numric = number | boolean
+
+type Universal = Combinable & Numric
+
+function add(a: Combinable, b: Combinable) {
+  if (typeof a === 'string' || typeof b === 'string') {
+    return a.toString() + b.toString()
+  }
+  return a + b
+}
+console.log(add('1', 2))
+console.log('typeof end')
+
+/***
+ * in
+ */
+console.log('in start')
+
 type Admin = {
   name: string
   privilges?: string[]
@@ -12,32 +37,100 @@ type Employee = {
   startDate: Date
 }
 
-interface Admin1 {
-  name: string
-  privilges?: string[]
+type unknownEmployee = Admin | Employee
+
+function pintUnknownEmployee(emp: unknownEmployee) {
+  if ('privilges' in emp) {
+    return emp.privilges
+  }
+  if ('startDate' in emp) {
+    return emp.startDate
+  }
 }
 
-interface Employee1 {
-  name: string
-  startDate: Date
-}
+const res = pintUnknownEmployee({
+  name: 'kxy',
+  startDate: new Date('2022-12-04'),
+})
+console.log(res)
+console.log('in end')
 
-/***
- * interface 使用 extends 实现继承， type 使用交叉类型实现继承
- *  type 类型别名会给一个类型起个新名字。 类型别名有时和接口很像，但是可以作用于原始值，联合类型，元组以及其它任何你需要手写的类型。
+/**
+ * instanceof
  */
 
-type ElevatedEmployee = Admin & Employee // 交叉类型
-interface ElevatedEmployee1 extends Admin1, Employee1 {}
+console.log('instanceof start')
 
-const e1: ElevatedEmployee = {
-  name: 'kxy',
-  startDate: new Date('2022-12-04'),
+class Car {
+  drive() {
+    console.log('Drive...')
+  }
 }
 
-const e2: ElevatedEmployee1 = {
-  name: 'kxy',
-  startDate: new Date('2022-12-04'),
+class Truck {
+  drive() {
+    console.log('Drive a truck...')
+  }
+
+  loadCargo(amount: string | number) {
+    console.log('loaging... ' + amount)
+  }
 }
-console.log(e1)
-console.log(e2)
+
+type vehicle = Car | Truck
+
+const v1 = new Car()
+const v2 = new Truck()
+
+function useVehicle(vehicle: vehicle) {
+  vehicle.drive()
+  if (vehicle instanceof Truck) {
+    vehicle.loadCargo(1000)
+  }
+}
+useVehicle(v1)
+useVehicle(v2)
+console.log('instanceof end')
+
+/**
+ * 可辨别联合 Discriminated unions
+ */
+console.log('Discriminated unions start')
+
+interface Circle {
+  kind: 'circle'
+  radius: number
+}
+
+interface Square {
+  kind: 'square'
+  sideLength: number
+}
+
+type Shape = Circle | Square
+
+function getArea(shape: Shape) {
+  if (shape.kind === 'circle') {
+    return Math.PI * shape.radius ** 2
+  }
+}
+getArea({ radius: 200, kind: 'circle' })
+console.log('Discriminated unions end')
+
+/**
+ * 类型断言 as
+ */
+const myCanvas = document.getElementById('main_canvas') as HTMLCanvasElement
+
+/**
+ * 索引签名 Index Signatures
+ */
+
+interface errContaniner {
+  [key: string]: number
+}
+
+const errBag: errContaniner = {
+  code: 500,
+}
+console.log(errBag)
