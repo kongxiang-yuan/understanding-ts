@@ -2,7 +2,7 @@
  * @declaration 工具类型
  */
 
-// Required<Type> 必须
+// Required<Type> 必选
 interface UsetInfo {
   name: string
   gmail: string
