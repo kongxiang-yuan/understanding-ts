@@ -13,7 +13,7 @@ function submit(param: Required<UsetInfo>) {
   return param as UsetInfo
 }
 console.log(submit({ name: 'kongxianyuan', gmail: '', date: new Date() }))
-// Partial<Type> 可选 
+// Partial<Type> 可选
 interface UsetInfo {
   name: string
   gmail: string
